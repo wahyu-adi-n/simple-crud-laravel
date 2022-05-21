@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Student;
+use Illuminate\Database\Seeder;;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,5 +20,27 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        Student::create([
+            'student_id' => 'A11.2019.12310',
+            'student_name' => 'Wahyu Adi Nugroho',
+            'email' => 'wahyuadinugroho@mhs.dinus.ac.id',
+            'contact' => '081123432549',
+            'address' => 'Semarang'
+        ]);
+        Student::create([
+            'student_id' => 'A11.2019.12311',
+            'student_name' => 'Raphael Adhimas Aryandanu Santoso',
+            'email' => 'raphaeladhimas@mhs.dinus.ac.id',
+            'contact' => '083456765870',
+            'address' => 'Salatiga'
+        ]);
+
+        Student::create([
+            'student_id' => 'A11.2019.12312',
+            'student_name' => 'Pandu Atisar Rahman',
+            'email' => 'panduatisar@mhs.dinus.ac.id',
+            'contact' => '089987678000',
+            'address' => 'Kendal'
+        ]);
     }
 }
