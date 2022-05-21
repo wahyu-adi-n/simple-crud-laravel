@@ -15,7 +15,7 @@ class StudentController extends Controller
     public function index(Request $request)
     {
         //
-        $data['title'] = 'Students';
+        $data['title'] = 'List Students';
         $data['students'] = Student::all();
         return view('student.index', $data);
     }
@@ -28,7 +28,8 @@ class StudentController extends Controller
     public function create()
     {
         //
-        return view('student.create');
+        $data['title'] = 'Add Students';
+        return view('student.create', $data);
     }
 
     /**

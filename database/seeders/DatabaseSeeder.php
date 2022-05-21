@@ -21,26 +21,18 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         // Student::create([
-        //     'student_id' => 'A11.2019.12310',
-        //     'student_name' => 'Wahyu Adi Nugroho',
-        //     'email' => 'wahyuadinugroho@mhs.dinus.ac.id',
-        //     'contact' => '081123432549',
-        //     'address' => 'Semarang'
+        //     'student_id' => 'A11.2019.12313',
+        //     'student_name' => 'Ahmad Solihin Nugroho',
+        //     'email' => 'ahmadsolnugroho@mhs.dinus.ac.id',
+        //     'contact' => '085865747425',
+        //     'address' => 'Boyolali'
         // ]);
         // Student::create([
-        //     'student_id' => 'A11.2019.12311',
-        //     'student_name' => 'Raphael Adhimas Aryandanu Santoso',
-        //     'email' => 'raphaeladhimas@mhs.dinus.ac.id',
-        //     'contact' => '083456765870',
-        //     'address' => 'Salatiga'
-        // ]);
-
-        // Student::create([
-        //     'student_id' => 'A11.2019.12312',
-        //     'student_name' => 'Pandu Atisar Rahman',
-        //     'email' => 'panduatisar@mhs.dinus.ac.id',
-        //     'contact' => '089987678000',
-        //     'address' => 'Kendal'
+        //     'student_id' => 'A11.2019.12314',
+        //     'student_name' => 'Cintya Paramitha',
+        //     'email' => 'cintyaparam@mhs.dinus.ac.id',
+        //     'contact' => '083838456777',
+        //     'address' => 'Demak'
         // ]);
     }
 }

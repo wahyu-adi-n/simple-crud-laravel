@@ -2,7 +2,7 @@
 @section('content')
   <div class="row">
     <div class="col-md-4">
-      <h3 class="btn btn-primary"><a href="{{ route('student.create') }}">Add Student</a></h3>
+      <a href="/students/create" class="btn btn-primary">Add Student</a>
     </div>
     <div class="col-md-8">
 
@@ -30,7 +30,10 @@
             <td>{{ $student->email }}</td>
             <td>{{ $student->contact }}</td>
             <td>{{ $student->address }}</td>
-            <td>Edit | Delete</td>
+            <td>
+              <a href="/students/update" class="btn btn-warning">Edit</a> | <a href="/students/delete"
+                class="btn btn-danger">Delete</a>
+            </td>
           </tr>
         @endforeach
       </table>
