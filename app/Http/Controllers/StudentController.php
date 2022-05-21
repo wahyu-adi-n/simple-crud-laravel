@@ -12,9 +12,12 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        $data['title'] = 'Students';
+        $data['students'] = Student::all();
+        return view('student.index', $data);
     }
 
     /**
