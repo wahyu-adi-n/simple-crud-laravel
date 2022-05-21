@@ -2,7 +2,7 @@
 @section('content')
   <div class="row">
     <div class="col-md-4">
-      <h3 class="btn btn-success">Add Student</h3>
+      <h3 class="btn btn-primary"><a href="{{ route('student.create') }}">Add Student</a></h3>
     </div>
     <div class="col-md-8">
 
@@ -19,6 +19,7 @@
           <th>Email</th>
           <th>Contact</th>
           <th>Address</th>
+          <th>Action</th>
         </thead>
         <?php $no = 1; ?>
         @foreach ($students as $student)
