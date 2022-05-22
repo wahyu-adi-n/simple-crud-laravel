@@ -14,5 +14,7 @@ use App\Http\Controllers\StudentController;
 |
 */
 
-Route::get('/', [StudentController::class, 'index']);
+Route::get('/', [HomeController::class, 'index']);
 Route::resource('students', StudentController::class);
+Route::resource('lectures', LectureController::class);
+Route::resource('courses', CourseController::class);
