@@ -14,7 +14,6 @@ class LectureController extends Controller
      */
     public function index(Request $request)
     {
-        //
         $data['title'] = 'List Lectures';
         $data['q'] = $request->get('q');
         $data['lectures'] = Lecture::where('lecture_name', 'like', '%'.$data['q'].'%')->get();
@@ -28,7 +27,8 @@ class LectureController extends Controller
      */
     public function create()
     {
-        //
+        $data['title'] = 'Add Lecture';
+        return view('lectures.create', $data);
     }
 
     /**
@@ -39,7 +39,14 @@ class LectureController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'lecture_id' => 'required|unique:lectures',
+            'lecture_name' => 'required',
+            'email' => 'required|unique:lectures'
+        ]);
+        $lecture = new Lecture($request->all());
+        $lecture->save();
+        return redirect('lectures')->with('success', 'Lecture added successfully!');
     }
 
     /**
@@ -85,5 +92,7 @@ class LectureController extends Controller
     public function destroy(Lecture $lecture)
     {
         //
+        $lecture->delete();
+        return redirect('lectures')->with('success', 'Lecture deleted succesfully!');
     }
 }
