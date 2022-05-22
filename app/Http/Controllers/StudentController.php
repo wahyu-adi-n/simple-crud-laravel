@@ -14,7 +14,6 @@ class StudentController extends Controller
      */
     public function index(Request $request)
     {
-        //
         $data['title'] = 'List Students';
         $data['q'] = $request->get('q');
         $data['students'] = Student::where('student_name', 'like', '%'.$data['q'].'%')->get();
@@ -28,7 +27,6 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
         $data['title'] = 'Add Students';
         return view('student.create', $data);
     }
@@ -41,7 +39,6 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $request->validate([
             'student_id' => 'required|unique:students',
             'student_name' => 'required',
@@ -60,7 +57,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        //
+        $data['title'] = 'Student Details';
     }
 
     /**
@@ -71,7 +68,9 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        //
+        $data['title'] = 'Edit Students';
+        $data['students'] = $student;
+        return view('student.edit', $data);
     }
 
     /**
@@ -83,7 +82,13 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
-        //
+        $student->student_id = $request->student_id;
+        $student->student_name = $request->student_name;
+        $student->email = $request->email;
+        $student->contact = $request->contact;
+        $student->address = $request->address;
+        $student->save();
+        return redirect('students')->with('success', 'Student updated successfully!');
     }
 
     /**
@@ -94,7 +99,6 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
         $student->delete();
         return redirect('students')->with('success', 'Student deleted succesfully!');
     }
