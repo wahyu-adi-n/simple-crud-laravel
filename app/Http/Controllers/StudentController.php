@@ -16,7 +16,8 @@ class StudentController extends Controller
     {
         //
         $data['title'] = 'List Students';
-        $data['students'] = Student::all();
+        $data['q'] = $request->get('q');
+        $data['students'] = Student::where('student_name', 'like', '%'.$data['q'].'%')->get();
         return view('student.index', $data);
     }
 

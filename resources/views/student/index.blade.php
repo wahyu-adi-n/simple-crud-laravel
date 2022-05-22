@@ -1,15 +1,21 @@
 @extends('app')
 @section('content')
   <div class="row">
-    <div class="col-md-4">
+    <div class="col">
+      <form class="row row-cols-auto g-1">
+        <div class="col">
+          <input type="text" name='q' class="form-control" placeholder="Search here...">
+        </div>
+        <div class="col">
+          <button class="btn btn-success">Search</button>
+        </div>
+      </form>
+    </div>
+    <div class="col">
       <a href="/students/create" class="btn btn-primary">Add Student</a>
     </div>
-    <div class="col-md-8">
-
-    </div>
   </div>
-
-  <div class="row">
+  <div class="row mt-3">
     <div class="col-md-12">
       <table class="table table-striped table-responsive">
         <thead>
