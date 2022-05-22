@@ -7,7 +7,7 @@
           <p class="alert alert-danger">{{ $err }}</p>
         @endforeach
       @endif
-      <form action="/students/store" method="POST" class="mb-3">
+      <form action="{{ route('students.store') }}" method="POST" class="mb-3">
         @csrf
         <div class="col">
           <label for="">Student ID</label>
@@ -27,7 +27,7 @@
         </div>
         <div class="col mt-3">
           <button class="btn btn-primary">Add Student</button>
-          <a href="/students" class="btn btn-success">Back</a>
+          <a href="{{ route('students.index') }}" class="btn btn-success">Back</a>
         </div>
       </form>
     </div>

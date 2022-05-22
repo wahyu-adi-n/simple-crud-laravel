@@ -15,7 +15,7 @@
       </form>
     </div>
     <div class="col">
-      <a href="/students/create" class="btn btn-primary">Add Student</a>
+      <a href="{{ route('students.create') }}" class="btn btn-primary">Add Student</a>
     </div>
   </div>
   <div class="row mt-3">
@@ -40,8 +40,13 @@
             <td>{{ $student->contact }}</td>
             <td>{{ $student->address }}</td>
             <td>
-              <a href="/students/update" class="btn btn-warning">Edit</a> | <a href="/students/delete"
-                class="btn btn-danger">Delete</a>
+              <a href="{{ route('students.edit', $student) }}" class="btn btn-sm btn-warning">Edit</a>
+              <form action="{{ route('students.destroy', $student) }}" method="POST"
+                onsubmit="return confirm('Are you sure to delete it?')">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+              </form>
             </td>
           </tr>
         @endforeach
