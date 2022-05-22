@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Lecture;
 use App\Models\Student;
 use Illuminate\Database\Seeder;;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -20,19 +21,19 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        // Student::create([
-        //     'student_id' => 'A11.2019.12313',
-        //     'student_name' => 'Ahmad Solihin Nugroho',
-        //     'email' => 'ahmadsolnugroho@mhs.dinus.ac.id',
-        //     'contact' => '085865747425',
-        //     'address' => 'Boyolali'
-        // ]);
-        // Student::create([
-        //     'student_id' => 'A11.2019.12314',
-        //     'student_name' => 'Cintya Paramitha',
-        //     'email' => 'cintyaparam@mhs.dinus.ac.id',
-        //     'contact' => '083838456777',
-        //     'address' => 'Demak'
-        // ]);
+        Student::create([
+            'student_id' => 'A11.2019.12311',
+            'student_name' => 'Raphael Adhimas',
+            'email' => 'raphaeladhimas@mhs.dinus.ac.id',
+            'contact' => '08189009889',
+            'address' => 'Semarang'
+        ]);
+        Lecture::create([
+            'lecture_id' => '0686.2019.0001',
+            'lecture_name' => 'Cintya Paramitha',
+            'email' => 'cintyaparam@dsn.dinus.ac.id',
+            'contact' => '083838456777',
+            'address' => 'Demak'
+        ]);
     }
 }

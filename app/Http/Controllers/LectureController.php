@@ -12,10 +12,12 @@ class LectureController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
         $data['title'] = 'List Lectures';
+        $data['q'] = $request->get('q');
+        $data['lectures'] = Lecture::where('lecture_name', 'like', '%'.$data['q'].'%')->get();
         return view('lectures.index', $data);
     }
 

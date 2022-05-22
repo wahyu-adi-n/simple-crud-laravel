@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('lectures', function (Blueprint $table) {
             $table->id();
+            $table->string('lecture_id')->unique();
+            $table->string('lecture_name');
+            $table->string('email')->unique();
+            $table->string('contact')->nullable();
+            $table->string('address')->nullable();
             $table->timestamps();
         });
     }

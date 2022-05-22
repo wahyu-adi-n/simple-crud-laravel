@@ -6,16 +6,16 @@
   <div class="row">
     <div class="col">
       <form class="row row-cols-auto g-1">
-        <div class="col">
+        <div class="col-md-9">
           <input type="text" name='q' class="form-control" placeholder="Search here...">
         </div>
-        <div class="col">
+        <div class="col-md-1">
           <button class="btn btn-success">Search</button>
         </div>
+        <div class="col-md-2">
+          <a href="{{ route('students.create') }}" class="btn btn-primary">Add Student</a>
+        </div>
       </form>
-    </div>
-    <div class="col">
-      <a href="{{ route('students.create') }}" class="btn btn-primary">Add Student</a>
     </div>
   </div>
   <div class="row mt-3">
