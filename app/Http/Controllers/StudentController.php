@@ -42,6 +42,14 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'student_id' => 'required|unique:students',
+            'student_name' => 'required',
+            'email' => 'required|unique:students',
+        ]);
+        $student = new Student($request->all());
+        $student->save();
+        return redirect('students')->with('success', 'Student added successfully!');
     }
 
     /**

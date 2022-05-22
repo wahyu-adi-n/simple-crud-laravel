@@ -1,5 +1,8 @@
 @extends('app')
 @section('content')
+  @if (session('success'))
+    <p class="alert alert-success">{{ session('success') }}</p>
+  @endif
   <div class="row">
     <div class="col">
       <form class="row row-cols-auto g-1">
