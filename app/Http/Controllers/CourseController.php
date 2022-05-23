@@ -14,11 +14,11 @@ class CourseController extends Controller
      */
     public function index(Request $request)
     {
-        //
-        $data['title'] = 'List Courses';
-        $data['q'] = $request->get('q');
-        $data['courses'] = Course::where('course_name', 'like', '%'.$data['q'].'%')->get();
-        return view('courses.index', $data);
+        $data = [
+            'title' => 'List Courses',
+            'courses' => Course::where('course_name', 'like', '%'.$request->get('q').'%')->get()
+        ];
+        return view('course.index', $data);
     }
 
     /**
@@ -28,7 +28,8 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+        $data['title'] = 'Add Course';
+        return view('course.create', $data);
     }
 
     /**
@@ -61,7 +62,11 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        //
+        $data = [
+            'title' => 'Edit Course',
+            'course' => $course
+        ];
+        return view('course.edit', $data);
     }
 
     /**

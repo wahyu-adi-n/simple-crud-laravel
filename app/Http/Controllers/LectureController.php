@@ -14,9 +14,10 @@ class LectureController extends Controller
      */
     public function index(Request $request)
     {
-        $data['title'] = 'List Lectures';
-        $data['q'] = $request->get('q');
-        $data['lectures'] = Lecture::where('lecture_name', 'like', '%'.$data['q'].'%')->get();
+        $data = [
+            'title' => 'List Lectures',
+            'lectures' => Lecture::where('lecture_name', 'like', '%'.$request->get('q').'%')->get()
+        ];
         return view('lecture.index', $data);
     }
 
@@ -68,8 +69,10 @@ class LectureController extends Controller
      */
     public function edit(Lecture $lecture)
     {
-        $data['title'] = 'Edit Lecture';
-        $data['lecture'] = $lecture;
+        $data = [
+            'title' => 'Edit Lecture',
+            'lecture' =>  $lecture
+        ];
         return view('lecture.edit', $data);
     }
 

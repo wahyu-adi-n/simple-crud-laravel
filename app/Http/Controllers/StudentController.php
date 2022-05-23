@@ -14,9 +14,10 @@ class StudentController extends Controller
      */
     public function index(Request $request)
     {
-        $data['title'] = 'List Students';
-        $data['q'] = $request->get('q');
-        $data['students'] = Student::where('student_name', 'like', '%'.$data['q'].'%')->get();
+        $data = [
+            'title' => 'List Students',
+            'students' => Student::where('student_name', 'like', '%'.$request->get('q').'%')->get()
+        ];
         return view('student.index', $data);
     }
 
@@ -68,8 +69,10 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        $data['title'] = 'Edit Students';
-        $data['student'] = $student;
+        $data = [
+            'title' => 'Edit Student',
+            'student' => $student
+        ];
         return view('student.edit', $data);
     }
 
