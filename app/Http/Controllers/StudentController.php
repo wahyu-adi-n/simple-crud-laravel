@@ -69,7 +69,7 @@ class StudentController extends Controller
     public function edit(Student $student)
     {
         $data['title'] = 'Edit Students';
-        $data['students'] = $student;
+        $data['student'] = $student;
         return view('student.edit', $data);
     }
 
@@ -82,6 +82,11 @@ class StudentController extends Controller
      */
     public function update(Request $request, Student $student)
     {
+        if($request->email != $student->email){
+            $request->validate([
+                'email' => 'unique:lectures'
+            ]);
+        }
         $student->student_id = $request->student_id;
         $student->student_name = $request->student_name;
         $student->email = $request->email;

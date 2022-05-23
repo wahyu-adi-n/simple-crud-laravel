@@ -17,7 +17,7 @@ class LectureController extends Controller
         $data['title'] = 'List Lectures';
         $data['q'] = $request->get('q');
         $data['lectures'] = Lecture::where('lecture_name', 'like', '%'.$data['q'].'%')->get();
-        return view('lectures.index', $data);
+        return view('lecture.index', $data);
     }
 
     /**
@@ -28,7 +28,7 @@ class LectureController extends Controller
     public function create()
     {
         $data['title'] = 'Add Lecture';
-        return view('lectures.create', $data);
+        return view('lecture.create', $data);
     }
 
     /**
@@ -57,7 +57,7 @@ class LectureController extends Controller
      */
     public function show(Lecture $lecture)
     {
-        //
+        $data['title'] = 'Lecture Details';
     }
 
     /**
@@ -68,7 +68,9 @@ class LectureController extends Controller
      */
     public function edit(Lecture $lecture)
     {
-        //
+        $data['title'] = 'Edit Lecture';
+        $data['lecture'] = $lecture;
+        return view('lecture.edit', $data);
     }
 
     /**
@@ -81,6 +83,17 @@ class LectureController extends Controller
     public function update(Request $request, Lecture $lecture)
     {
         //
+        if($request->email != $lecture->email){
+            $request->validate([
+                'email' => 'unique:lectures'
+            ]);
+        }
+        $lecture->lecture_name = $request->lecture_name;
+        $lecture->email = $request->email;
+        $lecture->contact = $request->contact;
+        $lecture->address = $request->address;
+        $lecture->save();
+        return redirect('lectures')->with('success', 'Lecture updated succesfully!');
     }
 
     /**

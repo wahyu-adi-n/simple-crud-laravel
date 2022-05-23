@@ -17,7 +17,8 @@
           <input type="text" name="student_name" placeholder="Name" required class="form-control"
             value="{{ old('student_name') }}">
           <label for="">Email</label>
-          <input type="text" name="email" placeholder="Email" required class="form-control" value="{{ old('email') }}">
+          <input type="email" name="email" placeholder="Email" required class="form-control"
+            value="{{ old('email') }}">
           <label for="">Contact</label>
           <input type="text" name="contact" placeholder="Contact" required class="form-control"
             value="{{ old('contact') }}">
