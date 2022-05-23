@@ -7,7 +7,7 @@
           <p class="alert alert-danger">{{ $err }}</p>
         @endforeach
       @endif
-      <form action="{{ route('students.update', $student) }}" method="POST" class="mb-3">
+      <form action="{{ route('students.update', $student) }}" class="mb-3" method="post">
         @csrf
         @method('PUT')
         <div class="col">

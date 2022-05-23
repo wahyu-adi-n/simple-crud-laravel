@@ -40,7 +40,14 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'course_id' => 'required|unique:courses',
+            'course_name' => 'required',
+            'credits' => 'required', 'type' => 'required'
+        ]);
+        $course = new Course($request->all());
+        $course->save();
+        return redirect('courses')->with('success', 'Course added successfully!');
     }
 
     /**
@@ -51,7 +58,7 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-        //
+        $data['title'] = 'Course Details';
     }
 
     /**
@@ -78,7 +85,12 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
-        //
+        $course->course_id = $request->course_id;
+        $course->course_name = $request->course_name;
+        $course->credits = $request->credits;
+        $course->type = $request->type;
+        $course->save();
+        return redirect('courses')->with('success', 'Course updated successfully!');
     }
 
     /**
@@ -89,6 +101,7 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
-        //
+        $course->delete();
+        return redirect('courses')->with('success', 'Course deleted succesfully!');
     }
 }
