@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('course_id')->unique();
             $table->string('course_name');
-            $table->string('credits');
+            $table->integer('credits');
             $table->string('type');
             $table->timestamps();
         });

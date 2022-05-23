@@ -16,6 +16,8 @@ class CourseController extends Controller
     {
         //
         $data['title'] = 'List Courses';
+        $data['q'] = $request->get('q');
+        $data['courses'] = Course::where('course_name', 'like', '%'.$data['q'].'%')->get();
         return view('courses.index', $data);
     }
 
