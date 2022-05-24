@@ -17,28 +17,28 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // Student::factory(10)->create();
-        // Lecture::factory(10)->create();
+        Student::factory(5)->create();
+        Lecture::factory(5)->create();
         // Course::factory(10)->create();
         // \App\Models\User::factory(10)->create();
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        Student::create([
-            'student_id' => 'A11.2019.12310',
-            'student_name' => 'Wahyu Adi Nugroho',
-            'email' => 'wahyuadinugroho@mhs.dinus.ac.id',
-            'contact' => '08189009889',
-            'address' => 'Semarang'
-        ]);
-        Lecture::create([
-            'lecture_id' => '0686.2019.0002',
-            'lecture_name' => 'Abas Setiawan',
-            'email' => 'abassetiawan@dsn.dinus.ac.id',
-            'contact' => '083838456777',
-            'address' => 'Demak'
-        ]);
+        // Student::create([
+        //     'student_id' => 'A11.2019.12310',
+        //     'student_name' => 'Wahyu Adi Nugroho',
+        //     'email' => 'wahyuadinugroho@mhs.dinus.ac.id',
+        //     'contact' => '08189009889',
+        //     'address' => 'Semarang'
+        // ]);
+        // Lecture::create([
+        //     'lecture_id' => '0686.2019.0002',
+        //     'lecture_name' => 'Abas Setiawan',
+        //     'email' => 'abassetiawan@dsn.dinus.ac.id',
+        //     'contact' => '083838456777',
+        //     'address' => 'Demak'
+        // ]);
         Course::create([
             'course_id' => 'A11.50003',
             'course_name' => 'Image Processing',
